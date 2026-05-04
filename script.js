@@ -90,3 +90,51 @@ if (contactForm) {
         }, 3000);
     });
 }
+
+/* =============== METRIC COUNT-UP =============== */
+const metricValues = document.querySelectorAll('.highlights__value');
+
+const animateMetric = (el) => {
+    const finalText = el.dataset.final || el.textContent.trim();
+    const hasPercent = finalText.includes('%');
+    const hasTimes = finalText.includes('x');
+    const numeric = parseFloat(finalText.replace(/[^\d.]/g, ''));
+    if (Number.isNaN(numeric)) return;
+
+    const duration = 1200;
+    const start = performance.now();
+
+    const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = numeric * eased;
+
+        if (finalText.includes('.')) {
+            el.textContent = current.toFixed(2);
+        } else {
+            el.textContent = Math.round(current).toString();
+        }
+
+        if (hasPercent) el.textContent += '%';
+        if (hasTimes) el.textContent += 'x';
+
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = finalText;
+    };
+
+    requestAnimationFrame(step);
+};
+
+const metricObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateMetric(entry.target);
+        observer.unobserve(entry.target);
+    });
+}, { threshold: 0.5 });
+
+metricValues.forEach((el) => {
+    el.dataset.final = el.textContent.trim();
+    el.textContent = '0';
+    metricObserver.observe(el);
+});
