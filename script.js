@@ -90,3 +90,23 @@ if (contactForm) {
         }, 3000);
     });
 }
+
+/* =============== FUTURISTIC LIVE READOUT =============== */
+const utcClock = document.getElementById('utc-clock');
+const latencyReadout = document.getElementById('latency-readout');
+
+const tickTelemetry = () => {
+    if (utcClock) {
+        const now = new Date();
+        utcClock.textContent = now.toISOString().slice(11, 19);
+    }
+
+    if (latencyReadout) {
+        const jitter = Math.floor(Math.random() * 7) - 3;
+        const value = Math.max(8, 12 + jitter);
+        latencyReadout.textContent = `${value}ms`;
+    }
+};
+
+tickTelemetry();
+setInterval(tickTelemetry, 1000);
