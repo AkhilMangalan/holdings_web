@@ -91,49 +91,50 @@ if (contactForm) {
     });
 }
 
-/* =============== FUTURISTIC LIVE READOUT =============== */
-const utcClock = document.getElementById('utc-clock');
-const latencyReadout = document.getElementById('latency-readout');
-
-const tickTelemetry = () => {
-    if (utcClock) {
-        const now = new Date();
-        utcClock.textContent = now.toISOString().slice(11, 19);
-    }
-
-    if (latencyReadout) {
-        const jitter = Math.floor(Math.random() * 7) - 3;
-        const value = Math.max(8, 12 + jitter);
-        latencyReadout.textContent = `${value}ms`;
-    }
-};
-
-tickTelemetry();
-setInterval(tickTelemetry, 1000);
-
 /* =============== METRIC COUNT-UP =============== */
 const metricValues = document.querySelectorAll('.highlights__value');
+
 const animateMetric = (el) => {
-  const finalText = el.dataset.final || el.textContent.trim();
-  const suffix = finalText.replace(/[\d.]/g, '');
-  const numeric = parseFloat(finalText);
-  if (Number.isNaN(numeric)) return;
-  const start = performance.now();
-  const duration = 1200;
-  const step = (now) => {
-    const p = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    const current = finalText.includes('.') ? (numeric * eased).toFixed(2) : Math.round(numeric * eased).toString();
-    el.textContent = `${current}${suffix}`;
-    if (p < 1) requestAnimationFrame(step); else el.textContent = finalText;
-  };
-  requestAnimationFrame(step);
+    const finalText = el.dataset.final || el.textContent.trim();
+    const hasPercent = finalText.includes('%');
+    const hasTimes = finalText.includes('x');
+    const numeric = parseFloat(finalText.replace(/[^\d.]/g, ''));
+    if (Number.isNaN(numeric)) return;
+
+    const duration = 1200;
+    const start = performance.now();
+
+    const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = numeric * eased;
+
+        if (finalText.includes('.')) {
+            el.textContent = current.toFixed(2);
+        } else {
+            el.textContent = Math.round(current).toString();
+        }
+
+        if (hasPercent) el.textContent += '%';
+        if (hasTimes) el.textContent += 'x';
+
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = finalText;
+    };
+
+    requestAnimationFrame(step);
 };
+
 const metricObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    animateMetric(entry.target);
-    observer.unobserve(entry.target);
-  });
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        animateMetric(entry.target);
+        observer.unobserve(entry.target);
+    });
 }, { threshold: 0.5 });
-metricValues.forEach((el) => { el.dataset.final = el.textContent.trim(); el.textContent = '0'; metricObserver.observe(el); });
+
+metricValues.forEach((el) => {
+    el.dataset.final = el.textContent.trim();
+    el.textContent = '0';
+    metricObserver.observe(el);
+});
