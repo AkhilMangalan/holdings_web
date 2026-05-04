@@ -993,3 +993,37 @@ a {
     padding-top: 8rem;
   }
 }
+/* =============== HIGHLIGHTS =============== */
+.highlights {
+  padding-top: 6rem;
+}
+
+.highlights__grid {
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+.highlights__card {
+  padding: 2rem;
+  text-align: center;
+}
+
+.highlights__value {
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--accent-cyan);
+  text-shadow: var(--glow-cyan);
+  margin-bottom: 0.5rem;
+}
+
+.highlights__label {
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--smaller-font-size);
+}
+
+@media screen and (min-width: 768px) {
+  .highlights__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
