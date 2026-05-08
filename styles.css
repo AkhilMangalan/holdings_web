@@ -1094,3 +1094,77 @@ a {
   gap: .75rem;
   margin-top: 1.2rem;
 }
+
+/* =============== RESPONSIVE OPTIMIZATION =============== */
+@media screen and (max-width: 576px) {
+  .section { padding: 7rem 0 3.5rem; }
+
+  .nav__logo-img {
+    height: 140px;
+  }
+
+  .hero__description {
+    font-size: 1rem;
+  }
+
+  .hero__databar {
+    width: 100%;
+    gap: 0.5rem;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .hero__btns {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+
+  .hero__btns .button {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.25rem;
+  }
+
+  .services__card,
+  .infra__card,
+  .contact__form,
+  .signal__panel,
+  .highlights__card {
+    padding: 1.5rem;
+  }
+
+  .tool-tag {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.7rem;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 968px) {
+  .nav__logo-img {
+    height: 180px;
+  }
+
+  .hero__btns {
+    flex-wrap: wrap;
+    row-gap: 1rem;
+  }
+
+  .hero__btns .button {
+    flex: 1 1 240px;
+    text-align: center;
+  }
+
+  .highlights__grid,
+  .signal__grid {
+    gap: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1280px;
+  }
+
+  .hero__container {
+    padding-top: 9rem;
+  }
+}
