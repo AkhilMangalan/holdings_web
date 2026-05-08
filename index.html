@@ -34,6 +34,7 @@
                 <ul class="nav__list">
                     <li><a href="#home" class="nav__link active-link">Nexus</a></li>
                     <li><a href="#services" class="nav__link">Solutions</a></li>
+                    <li><a href="#highlights" class="nav__link">Metrics</a></li>
                     <li><a href="#about" class="nav__link">Roadmap</a></li>
                     <li><a href="#contact" class="nav__link">Initiate</a></li>
                 </ul>
@@ -67,9 +68,46 @@
                     We bridge the critical gap between visionary Business Modelling and absolute Technical Execution.
                     World-class digital infrastructure managed with extreme precision, built on pure logic.
                 </p>
+                <div class="hero__status glass-panel reveal">
+                    <span class="status-dot"></span> SYSTEM STATUS: NOMINAL · UPLINK SECURE
+                </div>
+                <div class="hero__databar reveal">
+                    <span>UTC NODE TIME</span>
+                    <strong id="utc-clock">--:--:--</strong>
+                    <span class="databar-divider"></span>
+                    <span>LATENCY</span>
+                    <strong id="latency-readout">12ms</strong>
+                </div>
+                <div class="live-console glass-panel reveal" aria-live="polite">
+                    <span class="live-console__label">LIVE STREAM</span>
+                    <p id="live-feed">Booting operational feed...</p>
+                </div>
                 <div class="hero__btns reveal">
                     <a href="#services" class="button button--outline">Explore Solutions</a>
                     <a href="#contact" class="button">Initiate Protocol</a>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="highlights section" id="highlights">
+            <div class="container">
+                <span class="section__tag reveal">Signal Strength</span>
+                <h2 class="section__title reveal">Execution Metrics</h2>
+                <div class="highlights__grid grid">
+                    <article class="highlights__card glass-panel reveal">
+                        <h3 class="highlights__value">99.98%</h3>
+                        <p class="highlights__label">Service Availability</p>
+                    </article>
+                    <article class="highlights__card glass-panel reveal">
+                        <h3 class="highlights__value">42%</h3>
+                        <p class="highlights__label">Average Cost Optimization</p>
+                    </article>
+                    <article class="highlights__card glass-panel reveal">
+                        <h3 class="highlights__value">3x</h3>
+                        <p class="highlights__label">Faster Delivery Velocity</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -262,7 +300,16 @@
 
                         <div class="contact__info">
                             <div class="contact__item">
-
+                                <span class="contact__label">Secure Line</span>
+                                <span class="contact__value">+91 70217 69719</span>
+                            </div>
+                            <div class="contact__item">
+                                <span class="contact__label">Operations Email</span>
+                                <span class="contact__value">info@aklholdings.com</span>
+                            </div>
+                            <div class="contact__item">
+                                <span class="contact__label">Response SLA</span>
+                                <span class="contact__value">&lt; 4 hours · Global Desk</span>
                             </div>
                         </div>
 
@@ -285,6 +332,39 @@
                     </div>
                 </div>
         </section>
+
+
+        <section class="signal section" id="signal">
+            <div class="container signal__grid grid">
+                <article class="signal__panel glass-panel reveal">
+                    <span class="section__tag">Live Mission Feed</span>
+                    <h3 class="signal__title">Operational Broadcast</h3>
+                    <ul class="signal__list">
+                        <li><span>01</span> Multi-cloud migration cut launch risk by 37%.</li>
+                        <li><span>02</span> AI-assisted triage reduced incident response to 6 min.</li>
+                        <li><span>03</span> Revenue analytics node now processes 4.2M events/day.</li>
+                        <li><span>04</span> Zero-trust controls passed latest red-team simulation.</li>
+                    </ul>
+                    <div class="signal__stats">
+                        <span class="tool-tag">Uptime: <strong id="uptime-readout">99.98%</strong></span>
+                        <span class="tool-tag">Active Sessions: <strong id="session-readout">128</strong></span>
+                    </div>
+                </article>
+                <article class="signal__panel glass-panel reveal">
+                    <span class="section__tag">Command Modules</span>
+                    <h3 class="signal__title">Integrated Capability Stack</h3>
+                    <div class="module__chips">
+                        <span class="tool-tag">Autonomous Workflows</span>
+                        <span class="tool-tag">Realtime BI Mesh</span>
+                        <span class="tool-tag">Neural UX Systems</span>
+                        <span class="tool-tag">Cloud Cost Guardrails</span>
+                        <span class="tool-tag">Predictive Ops</span>
+                        <span class="tool-tag">Security Telemetry</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
     </main>
 
     <!-- FOOTER -->
