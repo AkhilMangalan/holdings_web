@@ -26,6 +26,9 @@ const linkAction = () => {
 };
 navLink.forEach(n => n.addEventListener('click', linkAction));
 
+// Remove menu on scroll
+window.addEventListener('scroll', linkAction);
+
 /* =============== SCROLL REVEAL ANIMATION =============== */
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
