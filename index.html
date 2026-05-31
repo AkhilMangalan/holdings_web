@@ -11,19 +11,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
-    <!-- PURE CSS BACKGROUND ELEMENTS -->
-    <div class="cyber-grid-container">
-        <div class="cyber-grid"></div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-    </div>
-
     <header class="header" id="header">
         <nav class="nav container">
             <a href="#" class="nav__logo">
@@ -32,10 +26,9 @@
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
-                    <li><a href="#home" class="nav__link active-link">Nexus</a></li>
-                    <li><a href="#services" class="nav__link">Solutions</a></li>
-                    <li><a href="#about" class="nav__link">Roadmap</a></li>
-                    <li><a href="#contact" class="nav__link">Initiate</a></li>
+                    <li><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#about" class="nav__link">About us</a></li>
                 </ul>
                 <div class="nav__close" id="nav-close">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -44,6 +37,11 @@
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </div>
+            </div>
+            
+            <div class="nav__actions">
+                <a href="#" class="nav-login">Login</a>
+                <a href="#" class="nav-signup">Sign Up</a>
             </div>
 
             <div class="nav__toggle" id="nav-toggle">
@@ -58,28 +56,40 @@
     </header>
 
     <main class="main">
-        <!-- HERO: Pure Code High-Key -->
+        <!-- HERO: Stellar AI Layout -->
         <section class="hero" id="home">
+            <!-- Particle canvas moved out of the flex/grid flow since it's full-screen fixed -->
+            <canvas id="particle-canvas"></canvas>
+            
             <div class="hero__container container">
-                <h1 class="hero__title reveal">Architecting The Future of <span class="accent">Enterprise
-                        Agility.</span></h1>
-                <p class="hero__description reveal">
-                    We bridge the critical gap between visionary Business Modelling and absolute Technical Execution.
-                    World-class digital infrastructure managed with extreme precision, built on pure logic.
-                </p>
-                <div class="hero__status glass-panel reveal">
-                    <span class="status-dot"></span> SYSTEM STATUS: NOMINAL · UPLINK SECURE
+                <!-- Left Column: Text -->
+                <div class="hero__data">
+                    <h1 class="hero__title reveal">Architecting The Future of <span class="accent">Enterprise Agility.</span></h1>
+                    <p class="hero__description reveal">
+                        We bridge the critical gap between visionary Business Modelling and absolute Technical Execution. World-class digital infrastructure managed with extreme precision, built on pure logic.
+                    </p>
+                    <div class="hero__btns reveal">
+                        <button id="hero-chat-trigger" class="button button--gradient-pill">Get Started</button>
+                    </div>
                 </div>
-                <div class="hero__databar reveal">
-                    <span>UTC NODE TIME</span>
-                    <strong id="utc-clock">--:--:--</strong>
-                    <span class="databar-divider"></span>
-                    <span>LATENCY</span>
-                    <strong id="latency-readout">12ms</strong>
-                </div>
-                <div class="hero__btns reveal">
-                    <a href="#services" class="button button--outline">Explore Solutions</a>
-                    <a href="#contact" class="button">Initiate Protocol</a>
+                
+                <!-- Right Column: Overlapping Cards -->
+                <div class="hero__features reveal">
+                    <div class="hero-card">
+                        <span class="material-symbols-outlined card-icon">lightbulb</span>
+                        <h3 class="card-title">Idea Generation</h3>
+                        <p class="card-desc">Turn concepts into actionable ideas with AI-powered brainstorming</p>
+                    </div>
+                    <div class="hero-card">
+                        <span class="material-symbols-outlined card-icon">settings_suggest</span>
+                        <h3 class="card-title">Task Automation</h3>
+                        <p class="card-desc">Automate repetitive workflows and save valuable time.</p>
+                    </div>
+                    <div class="hero-card">
+                        <span class="material-symbols-outlined card-icon">show_chart</span>
+                        <h3 class="card-title">Performance Analysis</h3>
+                        <p class="card-desc">Automate repetitive workflows and save valuable time.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -307,6 +317,57 @@
             <p class="footer__copy">&#169; 2026 AKL Holdings Inc. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- ANTIGRAVITY POPUP CHATBOT -->
+    <div class="chatbot-widget" id="chatbot-widget">
+        <button class="chatbot-toggle" id="chatbot-toggle" title="Chat with Smrithi">
+            <svg class="toggle-icon-open" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <svg class="toggle-icon-close" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+
+        <div class="chatbot-window" id="chatbot-window">
+            <header class="chatbot-header">
+                <div class="chatbot-model">
+                    <span>Smrithi</span>
+                    <span class="material-symbols-outlined">expand_more</span>
+                </div>
+                <button class="icon-btn" id="chatbot-close-btn" title="Minimize">
+                    <span class="material-symbols-outlined">remove</span>
+                </button>
+            </header>
+
+            <div class="chatbot-messages" id="chat-messages">
+                <div class="message ai-message">
+                    <div class="message-avatar ai-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 7.1"/><path d="M12 12l9.9 4.9"/></svg>
+                    </div>
+                    <div class="message-body">
+                        <div class="message-author">Smrithi</div>
+                        <div class="message-text">
+                            <p>Greetings. How may I assist you with enterprise architecture or strategic consulting today?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-input-area">
+                <div class="chatbot-input-container">
+                    <form id="chat-form" class="chat-form">
+                        <button type="button" class="icon-btn attach-btn">
+                            <span class="material-symbols-outlined">add</span>
+                        </button>
+                        <textarea id="chat-input" class="chat-input" placeholder="Message Smrithi..." rows="1"></textarea>
+                        <button type="submit" class="icon-btn send-btn" id="send-btn" disabled>
+                            <span class="material-symbols-outlined">arrow_upward</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="chatbot-disclaimer">
+                    Smrithi can make mistakes. Consider verifying critical information.
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SCROLL REVEAL & NAV SCRIPT -->
     <script src="script.js"></script>
