@@ -1661,7 +1661,6 @@ body {
   .hero__data { text-align: center; }
   .hero__description { margin: 0 auto 2rem auto; }
   .hero__features { grid-template-columns: 1fr; }
-  .nav__menu { position: fixed; right: -100%; top: 0; background: var(--first-color-alt); width: 80%; height: 100%; padding: 4rem; transition: .4s; }
   .nav__actions { display: none; } /* Hide on mobile for simplicity */
 }
 
