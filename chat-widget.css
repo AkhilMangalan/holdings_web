@@ -100,8 +100,8 @@
   transform: translateY(0) scale(1);
 }
 
-@media screen and (max-width: 480px) {
-  .chatbot-widget { bottom: 1rem; right: 1rem; }
+@media screen and (max-width: 768px) {
+  .chatbot-widget { bottom: 6rem; right: 1rem; }
   .chatbot-window {
     position: fixed; 
     top: 0; 
