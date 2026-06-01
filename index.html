@@ -1,328 +1,600 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html class="dark" lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>AKL Holdings Inc.</title>
-    <meta name="description"
-        content="AKL Holdings Inc. is a premier firm bridging strategic consulting and elite technical execution. Architecting the future of enterprise agility.">
-    <link rel="stylesheet" href="styles.css?v=2">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="chat-widget.css" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#bbc9cf",
+                        "electric-blue": "#00D2FF",
+                        "tertiary-fixed": "#ffddb1",
+                        "surface-bright": "#3a3939",
+                        "secondary-fixed": "#eaddff",
+                        "primary-fixed-dim": "#47d6ff",
+                        "on-surface": "#e5e2e1",
+                        "outline-variant": "#3c494e",
+                        "on-primary-fixed": "#001f28",
+                        "on-secondary-container": "#c3a6ff",
+                        "tertiary-container": "#ffb229",
+                        "surface-variant": "#353534",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed-dim": "#ffba4a",
+                        "primary": "#a5e7ff",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary": "#003543",
+                        "error-container": "#93000a",
+                        "surface-container": "#201f1f",
+                        "obsidian-base": "#050505",
+                        "outline": "#859399",
+                        "on-secondary-fixed": "#25005a",
+                        "on-tertiary-fixed-variant": "#624000",
+                        "surface-dim": "#131313",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-tint": "#47d6ff",
+                        "error": "#ffb4ab",
+                        "deep-navy": "#0B0E1B",
+                        "surface-container-highest": "#353534",
+                        "neon-glow": "rgba(0, 210, 255, 0.4)",
+                        "tertiary": "#ffd79f",
+                        "on-tertiary": "#442b00",
+                        "on-secondary": "#3b1d72",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#004e60",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "on-error": "#690005",
+                        "on-secondary-fixed-variant": "#52368a",
+                        "secondary-container": "#52368a",
+                        "background": "#131313",
+                        "on-tertiary-container": "#6c4700",
+                        "primary-fixed": "#b6ebff",
+                        "on-primary-container": "#00566a",
+                        "on-background": "#e5e2e1",
+                        "secondary": "#d2bbff",
+                        "inverse-primary": "#00677f",
+                        "primary-container": "#00d2ff",
+                        "surface": "#131313",
+                        "glass-border": "rgba(255, 255, 255, 0.1)",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-fixed": "#291800"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Sora"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "mono-data": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "mono-data": ["14px", { "lineHeight": "20px", "fontWeight": "500" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .kinetic-glow {
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.15);
+        }
+
+        .glow-border:hover {
+            border-color: rgba(0, 210, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
+        }
+
+        .active-nav-bg {
+            background: rgba(82, 54, 138, 0.2);
+        }
+
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #00D2FF, transparent);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
 </head>
 
-<body>
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <img src="logo.webp" alt="AKL Holdings Inc." class="nav__logo-img" fetchpriority="high">
-            </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li><a href="#home" class="nav__link active-link">Home</a></li>
-                    <li><a href="#services" class="nav__link">Services</a></li>
-                    <li><a href="#about" class="nav__link">About us</a></li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </div>
+<body class="bg-obsidian-base text-on-surface font-body-md overflow-x-hidden">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 bg-obsidian-base/80 backdrop-blur-md border-b border-glass-border">
+        <div
+            class="flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <img alt="AKL Holdings Logo" class="h-28 w-auto object-contain" src="logo.webp" />
+                <span class="font-display-lg-mobile text-[30px] font-bold text-on-surface tracking-tighter"></span>
             </div>
-            
-            <div class="nav__actions">
-                <a href="#" class="nav-login">Login</a>
-                <a href="#" class="nav-signup">Sign Up</a>
-            </div>
-
-            <div class="nav__toggle" id="nav-toggle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </div>
-        </nav>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a class="text-electric-blue font-bold font-label-sm text-label-sm transition-colors duration-300"
+                    href="#home">Home</a>
+                <a class="text-on-surface-variant hover:text-electric-blue font-label-sm text-label-sm transition-colors duration-300"
+                    href="#solutions">Solutions</a>
+                <a class="text-on-surface-variant hover:text-electric-blue font-label-sm text-label-sm transition-colors duration-300"
+                    href="#process">Process</a>
+                <a class="text-on-surface-variant hover:text-electric-blue font-label-sm text-label-sm transition-colors duration-300"
+                    href="#contact">Contact</a>
+            </nav>
+            <button onclick="window.location.href='#contact'"
+                class="flex items-center gap-2 bg-primary-container text-on-primary-container px-4 py-2 rounded-xl font-label-sm text-label-sm active:scale-95 transition-all">
+                <span class="material-symbols-outlined text-[20px]">terminal</span>
+                <span>Command Center</span>
+            </button>
+        </div>
     </header>
-
-    <main class="main">
-        <!-- HERO: Stellar AI Layout -->
-        <section class="hero" id="home">
-            <!-- Particle canvas moved out of the flex/grid flow since it's full-screen fixed -->
-            <canvas id="particle-canvas"></canvas>
-            
-            <div class="hero__container container">
-                <!-- Left Column: Text -->
-                <div class="hero__data">
-                    <h1 class="hero__title reveal">Architecting The Future of <span class="accent">Enterprise Agility.</span></h1>
-                    <p class="hero__description reveal">
-                        We bridge the critical gap between visionary Business Modelling and absolute Technical Execution. World-class digital infrastructure managed with extreme precision, built on pure logic.
-                    </p>
-                    <div class="hero__btns reveal">
-                        <button id="hero-chat-trigger" class="button button--gradient-pill">Get Started</button>
-                    </div>
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section id="home"
+            class="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-margin-mobile overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div
+                    class="absolute top-1/4 -left-20 w-96 h-96 bg-electric-blue/10 blur-[120px] rounded-full animate-pulse">
                 </div>
-                
-                <!-- Right Column: Overlapping Cards -->
-                <div class="hero__features reveal">
-                    <div class="hero-card">
-                        <span class="material-symbols-outlined card-icon">lightbulb</span>
-                        <h3 class="card-title">Idea Generation</h3>
-                        <p class="card-desc">Turn concepts into actionable ideas with AI-powered brainstorming</p>
-                    </div>
-                    <div class="hero-card">
-                        <span class="material-symbols-outlined card-icon">settings_suggest</span>
-                        <h3 class="card-title">Task Automation</h3>
-                        <p class="card-desc">Automate repetitive workflows and save valuable time.</p>
-                    </div>
-                    <div class="hero-card">
-                        <span class="material-symbols-outlined card-icon">show_chart</span>
-                        <h3 class="card-title">Performance Analysis</h3>
-                        <p class="card-desc">Automate repetitive workflows and save valuable time.</p>
-                    </div>
+                <div
+                    class="absolute bottom-1/4 -right-20 w-80 h-80 bg-secondary-container/10 blur-[100px] rounded-full">
+                </div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto space-y-8">
+                <div
+                    class="inline-block px-4 py-1.5 rounded-full border border-electric-blue/30 bg-electric-blue/5 text-electric-blue font-label-sm text-label-sm uppercase tracking-widest">
+                    Next-Gen Enterprise Architecture
+                </div>
+                <h1
+                    class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg leading-tight md:leading-tight text-white">
+                    Architecting The <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-electric-blue to-secondary">Future of
+                        Enterprise Agility.</span>
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    We bridge the critical gap between visionary Business Modelling and absolute Technical Execution.
+                    World-class digital infrastructure managed with extreme precision, built on pure logic.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <button id="hero-chat-trigger"
+                        class="w-full sm:w-auto px-8 py-4 bg-electric-blue text-obsidian-base font-bold rounded-xl active:opacity-80 active:scale-95 transition-all kinetic-glow">
+                        Get Started
+                    </button>
+                    <button onclick="window.location.href='#solutions'"
+                        class="w-full sm:w-auto px-8 py-4 bg-transparent border border-glass-border text-on-surface font-bold rounded-xl hover:bg-white/5 active:scale-95 transition-all">
+                        View Ecosystem
+                    </button>
+                </div>
+            </div>
+            <!-- Bento Mini Grid (Quick Features) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl mx-auto mt-20 relative z-10">
+                <div class="glass-card p-8 rounded-xl glow-border transition-all">
+                    <span class="material-symbols-outlined text-electric-blue text-[32px] mb-4">lightbulb</span>
+                    <h3 class="font-headline-md text-headline-md mb-2">Idea Generation</h3>
+                    <p class="text-on-surface-variant">Turn concepts into actionable ideas with AI-powered brainstorming
+                    </p>
+                </div>
+                <div class="glass-card p-8 rounded-xl glow-border transition-all">
+                    <span class="material-symbols-outlined text-electric-blue text-[32px] mb-4">settings_suggest</span>
+                    <h3 class="font-headline-md text-headline-md mb-2">Task Automation</h3>
+                    <p class="text-on-surface-variant">Automate repetitive workflows and save valuable time.</p>
+                </div>
+                <div class="glass-card p-8 rounded-xl glow-border transition-all">
+                    <span class="material-symbols-outlined text-electric-blue text-[32px] mb-4">show_chart</span>
+                    <h3 class="font-headline-md text-headline-md mb-2">Performance Analysis</h3>
+                    <p class="text-on-surface-variant">Optimize systems using live telemetry and advanced modeling.</p>
                 </div>
             </div>
         </section>
-
-        <!-- SERVICES: Glassmorphism over CSS Data Nodes -->
-        <section class="services section" id="services">
-            <div class="container">
-                <span class="section__tag reveal">Strategic Pillars</span>
-                <h2 class="section__title reveal">World-Class Solutions</h2>
-
-                <div class="services__grid grid">
-
-                    <article class="services__card glass-panel reveal">
-                        <!-- Pure CSS Placeholder Icon -->
-                        <div class="css-icon icon-strategy"></div>
-                        <h3 class="services__title">Management Consulting & Strategy</h3>
-                        <p class="services__description">Strategic advisory focused on value stream mapping, leadership
-                            alignment, and operational excellence for modern enterprises. Aligning vision with velocity.
-                        </p>
-                        <div class="services__tools">
-                            <span class="tool-tag">Financial Models</span>
-                            <span class="tool-tag">Feasibility Studies</span>
-                            <span class="tool-tag">Process Improvement</span>
-                            <span class="tool-tag">M&A Strategy</span>
+        <!-- Solutions Bento Grid -->
+        <section id="solutions" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+            <div class="mb-16 space-y-4">
+                <p class="text-electric-blue font-label-sm text-label-sm uppercase tracking-[0.2em]">Strategic Pillars
+                </p>
+                <h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg">
+                    World-Class Solutions</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                <!-- Management Consulting -->
+                <div class="md:col-span-8 glass-card p-8 rounded-xl relative overflow-hidden group">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-electric-blue">account_balance</span>
                         </div>
-                    </article>
-
-                    <article class="services__card glass-panel reveal">
-                        <!-- Pure CSS Placeholder Icon -->
-                        <div class="css-icon icon-engineering"></div>
-                        <h3 class="services__title">Product Engineering</h3>
-                        <p class="services__description">Architecting high-performance digital experiences with a focus
-                            on absolute scalability and security. We build systems that perform.</p>
-                        <div class="services__tools">
-                            <span class="tool-tag"><img src="assets/icons/react.svg" alt="React" class="tool-icon">
-                                React / Next.js</span>
-                            <span class="tool-tag"><img src="assets/icons/nodejs.svg" alt="Node.js" class="tool-icon">
-                                Node.js</span>
-                            <span class="tool-tag"><img src="assets/icons/flutter.svg" alt="Flutter" class="tool-icon">
-                                Flutter</span>
+                        <h3 class="font-headline-md text-headline-md mb-4">Management Consulting &amp; Strategy</h3>
+                        <p class="text-on-surface-variant mb-8 max-w-xl">Strategic advisory focused on value stream
+                            mapping, leadership alignment, and operational excellence for modern enterprises. Aligning
+                            vision with velocity.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-surface-container-high rounded text-label-sm font-label-sm">Financial
+                                Models</span>
+                            <span
+                                class="px-3 py-1 bg-surface-container-high rounded text-label-sm font-label-sm">Feasibility
+                                Studies</span>
+                            <span
+                                class="px-3 py-1 bg-surface-container-high rounded text-label-sm font-label-sm">Process
+                                Improvement</span>
+                            <span
+                                class="px-3 py-1 bg-surface-container-high rounded text-label-sm font-label-sm">M&amp;A
+                                Strategy</span>
                         </div>
-                    </article>
-
-                    <article class="services__card glass-panel reveal">
-                        <!-- Pure CSS Placeholder Icon -->
-                        <div class="css-icon icon-cloud"></div>
-                        <h3 class="services__title">Cloud & MSP</h3>
-                        <p class="services__description">Enterprise-grade cloud migrations and 24/7 managed reliability
-                            service. Your data, managed with zero-downtime precision.</p>
-                        <div class="services__tools">
-                            <span class="tool-tag"><img src="assets/icons/aws.svg" alt="AWS" class="tool-icon"></span>
-                            <span class="tool-tag"><img src="assets/icons/azure.svg" alt="Azure"
-                                    class="tool-icon"></span>
-                            <span class="tool-tag"><img src="assets/icons/gcp.svg" alt="GCP" class="tool-icon"></span>
-                            <span class="tool-tag"><img src="assets/icons/google.svg" alt="Google" class="tool-icon">
-                                GCP</span>
+                    </div>
+                    <div
+                        class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-electric-blue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+                <!-- Product Engineering -->
+                <div class="md:col-span-4 glass-card p-8 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <div
+                            class="w-12 h-12 rounded-lg bg-secondary-container/20 flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-secondary">terminal</span>
                         </div>
-                    </article>
-
-                    <article class="services__card glass-panel reveal">
-                        <!-- Pure CSS Placeholder Icon -->
-                        <div class="css-icon icon-data"></div>
-                        <h3 class="services__title">Business Intelligence</h3>
-                        <p class="services__description">Data-driven business structures and intelligence layers using
-                            advanced analytics to map your trajectory and drive revenue growth.</p>
-                        <div class="services__tools">
-                            <span class="tool-tag"><img src="assets/icons/power_bi.svg" alt="Power BI"
-                                    class="tool-icon"> Power BI</span>
-                            <span class="tool-tag"><img src="assets/icons/tableau.svg" alt="Tableau" class="tool-icon">
-                                Tableau</span>
-                            <span class="tool-tag"><img src="assets/icons/python.svg" alt="Python" class="tool-icon">
-                                Python for Data</span>
+                        <h3 class="font-headline-md text-headline-md mb-4">Product Engineering</h3>
+                        <p class="text-on-surface-variant mb-6">Architecting high-performance digital experiences with
+                            absolute scalability.</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-2 text-on-surface">
+                            <span class="material-symbols-outlined text-electric-blue text-[18px]">verified</span>
+                            <span class="text-label-sm font-label-sm">React / Next.js</span>
                         </div>
-                    </article>
-
-                    <article class="services__card glass-panel reveal">
-                        <div class="css-icon icon-portal"></div>
-                        <h3 class="services__title">Enterprise Portal Engineering</h3>
-                        <p class="services__description">Constructing unified, dynamic ecosystems. We develop highly
+                        <div class="flex items-center gap-2 text-on-surface">
+                            <span class="material-symbols-outlined text-electric-blue text-[18px]">verified</span>
+                            <span class="text-label-sm font-label-sm">Node.js</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-on-surface">
+                            <span class="material-symbols-outlined text-electric-blue text-[18px]">verified</span>
+                            <span class="text-label-sm font-label-sm">Flutter</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Cloud & MSP -->
+                <div class="md:col-span-4 glass-card p-8 rounded-xl">
+                    <div class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-tertiary">cloud</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-4">Cloud &amp; MSP</h3>
+                    <p class="text-on-surface-variant mb-6">Enterprise-grade cloud migrations and 24/7 managed
+                        reliability service. Zero-downtime precision.</p>
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-high rounded-full border border-outline-variant text-label-sm font-label-sm">
+                        <span class="w-2 h-2 rounded-full bg-tertiary"></span> GCP Certified
+                    </span>
+                </div>
+                <!-- Business Intelligence -->
+                <div class="md:col-span-4 glass-card p-8 rounded-xl group hover:border-electric-blue/40 transition-all">
+                    <h3 class="font-headline-md text-headline-md mb-4">Business Intelligence</h3>
+                    <p class="text-on-surface-variant mb-8">Data-driven business structures and intelligence layers
+                        using advanced analytics.</p>
+                    <div class="flex flex-col gap-2">
+                        <div class="h-1 bg-surface-container-high w-full rounded overflow-hidden">
+                            <div class="h-full bg-electric-blue w-4/5 group-hover:w-full transition-all duration-700">
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+                            <span>Power BI</span>
+                            <span>Tableau</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Interface Design -->
+                <div
+                    class="md:col-span-4 glass-card p-8 rounded-xl flex flex-col justify-between bg-gradient-to-br from-white/5 to-transparent">
+                    <div>
+                        <h3 class="font-headline-md text-headline-md mb-4">Neuromorphic Design</h3>
+                        <p class="text-on-surface-variant">Highly kinetic, user-centric interfaces rooted in cognitive
+                            flow.</p>
+                    </div>
+                    <div class="flex gap-2 mt-4">
+                        <div class="px-3 py-1 bg-electric-blue text-obsidian-base rounded-full text-label-sm font-bold">
+                            UX/UI</div>
+                        <div class="px-3 py-1 bg-white/10 rounded-full text-label-sm">Design Systems</div>
+                    </div>
+                </div>
+                <!-- Enterprise Portal -->
+                <div
+                    class="md:col-span-12 glass-card p-8 rounded-xl flex flex-col md:flex-row items-center gap-8 border-l-4 border-l-electric-blue">
+                    <div class="flex-1">
+                        <h3 class="font-headline-md text-headline-md mb-2">Enterprise Portal Engineering</h3>
+                        <p class="text-on-surface-variant">Constructing unified, dynamic ecosystems. We develop highly
                             scalable enterprise portals allowing seamless access to internal tools, data streams, and
                             client environments.</p>
-                        <div class="services__tools">
-                            <span class="tool-tag">Dynamic Architectures</span>
-                            <span class="tool-tag">API Integration</span>
-                        </div>
-                    </article>
-
-                    <article class="services__card glass-panel reveal">
-                        <div class="css-icon icon-design"></div>
-                        <h3 class="services__title">Neuromorphic Interface Design</h3>
-                        <p class="services__description">Crafting the next generation of visual identity and corporate
-                            branding. We design highly kinetic, user-centric interfaces rooted in cognitive flow and
-                            aesthetic purity.</p>
-                        <div class="services__tools">
-                            <span class="tool-tag">UX/UI</span>
-                            <span class="tool-tag">Design Systems</span>
-                        </div>
-                    </article>
-
+                    </div>
+                    <div class="flex flex-wrap gap-4 shrink-0">
+                        <button
+                            class="px-6 py-2 border border-outline rounded-lg text-label-sm font-label-sm hover:border-electric-blue transition-colors">Dynamic
+                            Architectures</button>
+                        <button
+                            class="px-6 py-2 border border-outline rounded-lg text-label-sm font-label-sm hover:border-electric-blue transition-colors">API
+                            Integration</button>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- CORE INFRASTRUCTURE -->
-        <section class="infrastructure section" id="infrastructure">
-            <div class="container">
-                <span class="section__tag reveal">System Features</span>
-                <h2 class="section__title reveal">Core Infrastructure</h2>
-
-                <div class="infrastructure__grid grid">
-                    <article class="infra__card glass-panel reveal">
-                        <h3 class="infra__title">Zero-Trust Security Framework</h3>
-                        <p class="infra__description">Deploying absolute digital safety protocols. End-to-end
+        <!-- Core Infrastructure Grid -->
+        <section class="bg-surface-container-lowest py-section-gap">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+                <div class="mb-16 text-center max-w-2xl mx-auto space-y-4">
+                    <p class="text-secondary font-label-sm text-label-sm uppercase tracking-[0.2em]">System Features</p>
+                    <h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg">Core
+                        Infrastructure</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                    <div class="group p-8 border-t border-glass-border hover:bg-white/5 transition-all">
+                        <div class="font-mono-data text-electric-blue mb-6">SEC-PRT_01</div>
+                        <h3 class="font-headline-md text-headline-md mb-4">Zero-Trust Security Framework</h3>
+                        <p class="text-on-surface-variant">Deploying absolute digital safety protocols. End-to-end
                             encryption, automated vulnerability audits, and multi-factor perimeters ensure your data
                             remains untampered.</p>
-                    </article>
-
-                    <article class="infra__card glass-panel reveal">
-                        <h3 class="infra__title">Predictive Performance Analytics</h3>
-                        <p class="infra__description">Live telemetry streams and predictive modelling. We instrument
-                            your systems with advanced analytics to visualize real-time performance and aggressively
-                            optimize growth vectors.</p>
-                    </article>
-
-                    <article class="infra__card glass-panel reveal">
-                        <h3 class="infra__title">Asynchronous Team Collaboration</h3>
-                        <p class="infra__description">Shared workspaces engineered for velocity. Integrating
+                    </div>
+                    <div class="group p-8 border-t border-glass-border hover:bg-white/5 transition-all">
+                        <div class="font-mono-data text-electric-blue mb-6">ANL-TEK_04</div>
+                        <h3 class="font-headline-md text-headline-md mb-4">Predictive Performance Analytics</h3>
+                        <p class="text-on-surface-variant">Live telemetry streams and predictive modelling. We
+                            instrument your systems with advanced analytics to visualize real-time performance and
+                            aggressively optimize growth vectors.</p>
+                    </div>
+                    <div class="group p-8 border-t border-glass-border hover:bg-white/5 transition-all">
+                        <div class="font-mono-data text-electric-blue mb-6">COL-LNK_09</div>
+                        <h3 class="font-headline-md text-headline-md mb-4">Asynchronous Team Collaboration</h3>
+                        <p class="text-on-surface-variant">Shared workspaces engineered for velocity. Integrating
                             cloud-native communication channels and progress telemetry, drastically reducing development
                             cycles.</p>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- ROADMAP -->
-        <div class="roadmap__container">
-            <section class="roadmap container reveal" id="about">
-                <span class="section__tag">The Methodology</span>
-                <h2 class="section__title">Redefining the Trajectory</h2>
-
-                <div class="roadmap__list">
-                    <div class="roadmap__item">
-                        <h3 class="roadmap__title">I. Strategic Discovery</h3>
-                        <p>Aggressive auditing of legacy constraints. We define a clear technical vision and strategy by
-                            deeply understanding your corporate objectives and target demographic.</p>
+        <!-- Methodology Timeline -->
+        <section id="process" class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto">
+            <div class="mb-20 text-center">
+                <p class="text-electric-blue font-label-sm text-label-sm uppercase tracking-[0.2em] mb-4">The
+                    Methodology</p>
+                <h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg">
+                    Redefining the Trajectory</h2>
+            </div>
+            <div class="relative">
+                <!-- Timeline Stem -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px timeline-line"></div>
+                <div class="space-y-24">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col md:flex-row md:items-center">
+                        <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0 md:text-right">
+                            <h3 class="font-headline-md text-headline-md text-white mb-4">I. Strategic Discovery</h3>
+                            <p class="text-on-surface-variant">Aggressive auditing of legacy constraints. We define a
+                                clear technical vision and strategy by deeply understanding your corporate objectives
+                                and target demographic.</p>
+                        </div>
+                        <div
+                            class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-obsidian-base border-2 border-electric-blue rounded-full z-10 shadow-[0_0_10px_rgba(0,210,255,0.5)]">
+                        </div>
+                        <div class="md:w-1/2 md:pl-16"></div>
                     </div>
-                    <div class="roadmap__item">
-                        <h3 class="roadmap__title">II. Neural Prototyping</h3>
-                        <p>Constructing a detailed projection roadmap. This includes high-fidelity wireframes, kinetic
-                            design concepts, and robust technical architectures to ensure absolute alignment.</p>
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col md:flex-row-reverse md:items-center">
+                        <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
+                            <h3 class="font-headline-md text-headline-md text-white mb-4">II. Neural Prototyping</h3>
+                            <p class="text-on-surface-variant">Constructing a detailed projection roadmap. This includes
+                                high-fidelity wireframes, kinetic design concepts, and robust technical architectures.
+                            </p>
+                        </div>
+                        <div
+                            class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-obsidian-base border-2 border-electric-blue rounded-full z-10 shadow-[0_0_10px_rgba(0,210,255,0.5)]">
+                        </div>
+                        <div class="md:w-1/2 md:pr-16"></div>
                     </div>
-                    <div class="roadmap__item">
-                        <h3 class="roadmap__title">III. Velocity Engineering</h3>
-                        <p>Precision execution. We design, develop, and integrate the solution leveraging elite tools
-                            and automation practices, maintaining severe quality standards at every node.</p>
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col md:flex-row md:items-center">
+                        <div class="md:w-1/2 md:pr-16 mb-8 md:mb-0 md:text-right">
+                            <h3 class="font-headline-md text-headline-md text-white mb-4">III. Velocity Engineering</h3>
+                            <p class="text-on-surface-variant">Precision execution. We design, develop, and integrate
+                                the solution leveraging elite tools and automation practices, maintaining severe quality
+                                standards.</p>
+                        </div>
+                        <div
+                            class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-obsidian-base border-2 border-electric-blue rounded-full z-10 shadow-[0_0_10px_rgba(0,210,255,0.5)]">
+                        </div>
+                        <div class="md:w-1/2 md:pl-16"></div>
                     </div>
-                    <div class="roadmap__item">
-                        <h3 class="roadmap__title">IV. Enterprise Launch & Support</h3>
-                        <p>Post-deployment finality. Deploying the robust system alongside continuous predictive
-                            maintenance, telemetry updates, and seamless infrastructure optimization support.</p>
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col md:flex-row-reverse md:items-center">
+                        <div class="md:w-1/2 md:pl-16 mb-8 md:mb-0">
+                            <h3 class="font-headline-md text-headline-md text-white mb-4">IV. Enterprise Launch</h3>
+                            <p class="text-on-surface-variant">Post-deployment finality. Deploying the robust system
+                                alongside continuous predictive maintenance, telemetry updates, and seamless
+                                infrastructure optimization support.</p>
+                        </div>
+                        <div
+                            class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-obsidian-base border-2 border-electric-blue rounded-full z-10 shadow-[0_0_10px_rgba(0,210,255,0.5)]">
+                        </div>
+                        <div class="md:w-1/2 md:pr-16"></div>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <!-- CONTACT -->
-        <section class="contact section" id="contact">
-            <div class="container">
-                <span class="section__tag reveal">Initiate Contact</span>
-                <h2 class="section__title reveal">Command Center</h2>
-
-                <div class="contact__grid grid">
-                    <!-- Text/Info Column -->
-                    <div class="contact__content reveal">
-                        <h3 class="contact__subtitle">Establish Secure Comms</h3>
-                        <p class="contact__description">Connect with our strategic core to initiate your transformation
-                            protocol. Our specialists are on standby to architect your future.</p>
-
-                        <div class="contact__info">
-                            <div class="contact__item">
-                                <h4 class="contact__title">Headquarters</h4>
-                                <p class="contact__text">No.4, 1st Floor, White House Tower,<br>Vasant Kunj, New Delhi,
-                                    Delhi, India, 110070</p>
+            </div>
+        </section>
+        <!-- Command Center -->
+        <section id="contact" class="py-section-gap px-margin-mobile bg-deep-navy relative overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                <div class="w-full h-full"
+                    style="background-image: radial-gradient(circle at 2px 2px, rgba(0, 210, 255, 0.1) 1px, transparent 0); background-size: 40px 40px;">
+                </div>
+            </div>
+            <div class="relative z-10 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <p class="text-electric-blue font-label-sm text-label-sm uppercase tracking-widest">Initiate Contact
+                    </p>
+                    <h2 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg">
+                        Command Center</h2>
+                    <p class="text-on-surface-variant text-body-lg">Connect with our strategic core to initiate your
+                        transformation protocol. Our specialists are on standby to architect your future.</p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-electric-blue">location_on</span>
                             </div>
-                            <div class="contact__item">
-                                <h4 class="contact__title">Direct Line</h4>
-                                <p class="contact__text">+91 70217 69719</p>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Headquarters</h4>
+                                <p class="text-on-surface-variant">No.4, 1st Floor, White House Tower,<br />Vasant Kunj,
+                                    New Delhi, Delhi, India, 110070</p>
                             </div>
-                            <div class="contact__item">
-                                <h4 class="contact__title">E-Mail</h4>
-                                <p class="contact__text">info@aklholdings.com</p>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-electric-blue">call</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Direct Line</h4>
+                                <p class="text-on-surface-variant">+91 70217 69719</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded bg-white/5 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-electric-blue">alternate_email</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">E-Mail</h4>
+                                <p class="text-on-surface-variant">info@aklholdings.com</p>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Form Column -->
-                    <div class="contact__form glass-panel reveal">
-                        <form action="" class="form">
-                            <div class="form__input-group">
-                                <input type="text" placeholder="Business Name" class="form__input" required>
-                            </div>
-                            <div class="form__input-group">
-                                <input type="email" placeholder="Official Email Address" class="form__input" required>
-                            </div>
-                            <div class="form__input-group">
-                                <input type="text" placeholder="Strategic Objective" class="form__input" required>
-                            </div>
-                            <button type="submit" class="button">Submit Directive</button>
-                        </form>
-                    </div>
+                </div>
+                <div class="glass-card p-8 md:p-12 rounded-xl">
+                    <h3 class="font-headline-md text-headline-md mb-8">Establish Secure Comms</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input
+                                class="w-full bg-obsidian-base border border-outline-variant rounded-lg p-3 text-white focus:border-electric-blue focus:ring-1 focus:ring-electric-blue outline-none transition-all placeholder:text-on-surface-variant/40"
+                                placeholder="Identity/Name" type="text" />
+                            <input
+                                class="w-full bg-obsidian-base border border-outline-variant rounded-lg p-3 text-white focus:border-electric-blue focus:ring-1 focus:ring-electric-blue outline-none transition-all placeholder:text-on-surface-variant/40"
+                                placeholder="Secure E-mail" type="email" />
+                        </div>
+                        <select
+                            class="w-full bg-obsidian-base border border-outline-variant rounded-lg p-3 text-on-surface-variant focus:border-electric-blue outline-none transition-all">
+                            <option>Consulting Inquiry</option>
+                            <option>Technical Partnership</option>
+                            <option>Cloud Infrastructure</option>
+                        </select>
+                        <textarea
+                            class="w-full bg-obsidian-base border border-outline-variant rounded-lg p-3 text-white focus:border-electric-blue focus:ring-1 focus:ring-electric-blue outline-none transition-all placeholder:text-on-surface-variant/40"
+                            placeholder="Directive Details" rows="4"></textarea>
+                        <button
+                            class="w-full py-4 bg-primary text-on-primary font-bold rounded-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                            <span>Submit Directive</span>
+                            <span class="material-symbols-outlined text-[20px]">send</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
+    <!-- Footer -->
+    <footer class="w-full py-12 px-margin-mobile mb-20 bg-obsidian-base border-t border-outline-variant">
+        <div class="flex flex-col space-y-6 items-center text-center w-full">
+            <div class="flex items-center gap-3">
+                <img alt="AKL Holdings Logo" class="h-20 w-auto object-contain" src="logo.webp" />
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <!-- <a href="#" class="nav__logo footer__logo">
-                <img src="logo.webp" alt="AKL Holdings Inc." class="nav__logo-img" loading="lazy">
-            </a>
-            <p>No.4,1st Floor, White House Tower, <br> Vasant Kunj, New Delhi, India 110070</p>
-            <p style="margin-top: 1rem;">Phone: +91 70217 69719<br>Email: info@aklholdings.com</p> -->
-
-            <p class="footer__copy">&#169; 2026 AKL Holdings Inc. All rights reserved.</p>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">© 2026 AKL Holdings Inc.</p>
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                <a class="text-on-surface-variant hover:text-electric-blue transition-all" href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-electric-blue transition-all" href="#">Terms of Service</a>
+                <a class="text-electric-blue underline transition-all" href="#contact">Command Center</a>
+            </div>
         </div>
     </footer>
-
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+        class="md:hidden fixed bottom-0 w-full z-50 bg-surface-container/90 backdrop-blur-xl border-t border-glass-border rounded-t-xl h-20 px-4 pb-safe flex justify-around items-center shadow-lg shadow-neon-glow/10">
+        <a href="#home"
+            class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-label-sm text-label-sm">Home</span>
+        </a>
+        <a href="#solutions"
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-electric-blue transition-all">
+            <span class="material-symbols-outlined">account_tree</span>
+            <span class="font-label-sm text-label-sm">Solutions</span>
+        </a>
+        <a href="#process"
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-electric-blue transition-all">
+            <span class="material-symbols-outlined">rebase_edit</span>
+            <span class="font-label-sm text-label-sm">Process</span>
+        </a>
+        <a href="#contact"
+            class="flex flex-col items-center justify-center text-on-surface-variant hover:text-electric-blue transition-all">
+            <span class="material-symbols-outlined">terminal</span>
+            <span class="font-label-sm text-label-sm">Contact</span>
+        </a>
+    </nav>
     <!-- ANTIGRAVITY POPUP CHATBOT -->
     <div class="chatbot-widget" id="chatbot-widget">
         <button class="chatbot-toggle" id="chatbot-toggle" title="Chat with Smrithi">
-            <svg class="toggle-icon-open" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            <svg class="toggle-icon-close" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <svg class="toggle-icon-open" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <svg class="toggle-icon-close" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
         </button>
 
         <div class="chatbot-window" id="chatbot-window">
@@ -339,12 +611,18 @@
             <div class="chatbot-messages" id="chat-messages">
                 <div class="message ai-message">
                     <div class="message-avatar ai-avatar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 7.1"/><path d="M12 12l9.9 4.9"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z" />
+                            <path d="M12 12 2.1 7.1" />
+                            <path d="M12 12l9.9 4.9" />
+                        </svg>
                     </div>
                     <div class="message-body">
                         <div class="message-author">Smrithi</div>
                         <div class="message-text">
-                            <p>Greetings. How may I assist you with enterprise architecture or strategic consulting today?</p>
+                            <p>Greetings. How may I assist you with enterprise architecture or strategic consulting
+                                today?</p>
                         </div>
                     </div>
                 </div>
@@ -356,7 +634,8 @@
                         <button type="button" class="icon-btn attach-btn">
                             <span class="material-symbols-outlined">add</span>
                         </button>
-                        <textarea id="chat-input" class="chat-input" placeholder="Message Smrithi..." rows="1"></textarea>
+                        <textarea id="chat-input" class="chat-input" placeholder="Message Smrithi..."
+                            rows="1"></textarea>
                         <button type="submit" class="icon-btn send-btn" id="send-btn" disabled>
                             <span class="material-symbols-outlined">arrow_upward</span>
                         </button>
@@ -368,9 +647,27 @@
             </div>
         </div>
     </div>
+    <script src="chat-widget.js"></script>
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
 
-    <!-- SCROLL REVEAL & NAV SCRIPT -->
-    <script src="script.js?v=2"></script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card, section h2, section p').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>
