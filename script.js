@@ -141,9 +141,16 @@ if (chatbotCloseBtn) chatbotCloseBtn.addEventListener('click', () => chatbotWidg
 if (heroChatTrigger) {
     heroChatTrigger.addEventListener('click', (e) => {
         e.preventDefault();
-        if (chatbotWidget && !chatbotWidget.classList.contains('is-open')) {
-            chatbotWidget.classList.add('is-open');
-            setTimeout(() => chatInput.focus(), 300);
+        if (chatbotWidget) {
+            if (!chatbotWidget.classList.contains('is-open')) {
+                chatbotWidget.classList.add('is-open');
+                setTimeout(() => chatInput.focus(), 300);
+            }
+        } else {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     });
 }
@@ -168,8 +175,7 @@ if(chatInput) {
 }
 
 let chatHistory = [];
-// Obfuscated to bypass GitHub's automated push protection while keeping it functional on the live site
-const GEMINI_API_KEY = atob('QVEuQWI4Uk42SU45LTF5dGgxWVFVVDluS3JjZ3BKYk5IOE9GOXJtWTFhWHhULTRFSjl6NVE=');
+const GEMINI_API_KEY = '';
 const SYSTEM_PROMPT = "You are Smrithi, an elite, highly advanced AI assistant for AKL Holdings Inc., a premier firm bridging strategic consulting and elite technical execution. Your tone is professional, futuristic, precise, and slightly robotic but helpful. Keep responses concise and impactful.";
 
 if(chatForm) {
